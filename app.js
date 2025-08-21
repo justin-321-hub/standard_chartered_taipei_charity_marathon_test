@@ -21,7 +21,7 @@
 /* =========================
    後端 API 網域（可依環境調整）
    ========================= */
-const API_BASE = "https://standard-chartered-taipei-charity.onrender.com";
+const API_BASE = " https://standard-chartered-taipei-charity-dhfc.onrender.com";
 const api = (p) => `${API_BASE}${p}`;
 
 /* =========================
@@ -248,7 +248,8 @@ messages.push({
   id: uid(),
   role: "assistant",
   text:
-    "Hi，我是 Sky，我喜歡跑步，熱心公益又充滿正能量，對賽事的各個環節瞭如指掌，希望能以我的專業滿足您的服務需求。\n如果有關於渣打臺北公益馬拉松的大小事，歡迎詢問我！",
+    "Hi，我是 Sky，我喜歡跑步，熱心公益又充滿正能量，對賽事的各個環節瞭如指掌，希望能以我的專業滿足您的服務需求。\n如果有關於渣打臺北公益馬拉松的大小事，歡迎詢問我！(測試版)",
   ts: Date.now(),
 });
 render();
+
