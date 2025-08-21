@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <title>2026渣打臺北公益馬拉松</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <!-- 頂部區塊：公司資訊 -->
+    <header class="topbar">
+      <img src="https://raw.githubusercontent.com/justin-321-hub/standard_chartered_taipei_charity_marathon/refs/heads/main/assets/2026%E6%B8%A3%E6%89%93%E9%A6%AClogo.png" class="logo" alt="logo" />
+      <div class="brand">
+        <div class="title">2026渣打臺北公益馬拉松</div>
+        <div class="subtitle">渣打臺北公益馬拉松服務大小事交給渣打馬智能客服Sky 24小時全天候隨問隨答</div>
+      </div>
+    </header>
+
+    <!-- 主體：聊天區 -->
+    <main class="main">
+      <div id="messages" class="messages"></div>
+
+      <!-- 思考中：等待 API 完成前顯示。預設隱藏，JS 以 .hidden 切換 -->
+      <div id="thinking" class="thinking hidden" role="status" aria-live="polite" aria-busy="true">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <span class="thinking-text">Sky正在思考 快想到囉!</span>
+      </div>
+    </main>
+
+    <!-- 輸入列（已移除語音按鈕） -->
+    <footer class="composer">
+      <textarea id="txtInput" class="input"
+          rows="1"
+          placeholder="輸入訊息（Shift+Enter 換行，Enter 送出）"
+          enterkeyhint="send" autocomplete="off" autocapitalize="off" autocorrect="off"></textarea>
+      <button id="btnSend" class="btn btn-primary">送出</button>
+    </footer>
+
+    <!-- 已移除語音播放/暫停 SVG 與麥克風按鈕 -->
+
+    <script src="./app.js"></script>
+  </body>
+</html>
+
+
+
+
+
