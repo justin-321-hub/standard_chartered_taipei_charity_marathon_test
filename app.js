@@ -144,7 +144,7 @@ async function sendText(text) {
       headers: {
         "Content-Type": "application/json",
         "X-Client-Id": clientId,
-        "language": "繁體中文".
+        "language": "繁體中文",
       },
       body: JSON.stringify({ text: content, clientId }),
     });
@@ -253,5 +253,6 @@ messages.push({
   ts: Date.now(),
 });
 render();
+
 
 
