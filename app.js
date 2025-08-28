@@ -21,7 +21,7 @@
 /* =========================
    後端 API 網域（可依環境調整）
    ========================= */
-const API_BASE = " https://standard-chartered-taipei-charity-dhfc.onrender.com";
+const API_BASE = "https://standard-chartered-taipei-charity.onrender.com";
 const api = (p) => `${API_BASE}${p}`;
 
 /* =========================
@@ -102,7 +102,7 @@ function render() {
     avatar.className = "avatar";
     avatar.src = isUser
       ? "https://raw.githubusercontent.com/justin-321-hub/standard_chartered_taipei_charity_marathon/refs/heads/main/assets/user.png"
-      : "https://raw.githubusercontent.com/justin-321-hub/standard_chartered_taipei_charity_marathon/refs/heads/main/assets/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202025-08-18%20191206.png";
+      : "https://raw.githubusercontent.com/justin-321-hub/standard_chartered_taipei_charity_marathon/refs/heads/main/assets/S__53714948.png";
     avatar.alt = isUser ? "you" : "bot";
 
     // 對話泡泡
@@ -145,7 +145,7 @@ async function sendText(text) {
         "Content-Type": "application/json",
         "X-Client-Id": clientId,
       },
-      body: JSON.stringify({ text: content, clientId , language: "英文"}),
+      body: JSON.stringify({ text: content, clientId , language: "繁體中文"}),
     });
 
     // 以文字讀回（避免直接 .json() 遇到空字串拋錯）
@@ -162,6 +162,11 @@ async function sendText(text) {
 
     // HTTP 狀態非 2xx 時，直接丟錯
     if (!res.ok) {
+      // ★ 新增：特別處理 502 / 404
+      if (res.status === 502 || res.status === 404) {
+        throw new Error("網路不穩定，請再試一次!");
+      }
+
       // 優先使用後端提供的錯誤訊息欄位
       const serverMsg =
         (data && (data.error || data.body || data.message)) ?? raw ?? "unknown error";
@@ -248,12 +253,9 @@ messages.push({
   id: uid(),
   role: "assistant",
   text:
-    "Hi，我是 Sky，我喜歡跑步，熱心公益又充滿正能量，對賽事的各個環節瞭如指掌，希望能以我的專業滿足您的服務需求。\n如果有關於渣打臺北公益馬拉松的大小事，歡迎詢問我！(測試版)",
+    "Hi，我是 Sky，我喜歡跑步，熱心公益又充滿正能量，對賽事的各個環節瞭如指掌，希望能以我的專業滿足您的服務需求。\n如果有關於渣打臺北公益馬拉松的大小事，歡迎詢問我！",
   ts: Date.now(),
 });
 render();
-
-
-
 
 
