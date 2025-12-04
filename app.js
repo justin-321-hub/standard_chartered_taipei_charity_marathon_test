@@ -726,7 +726,7 @@ async function sendText(text) {
       body: JSON.stringify({ 
         text: content, 
         clientId, 
-        language: "英文"
+        language: "繁體中文"
       }),
     });
 
